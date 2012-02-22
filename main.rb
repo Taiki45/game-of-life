@@ -1,5 +1,6 @@
-require 'Earth.rb'
-require 'Life.rb'
+#!/usr/bin/ruby
+require File::dirname(__FILE__) + '/Life.rb'
+require File::dirname(__FILE__) + '/Earth.rb'
 
 FIELD_SIZE = 8
 ALIVE = 1
