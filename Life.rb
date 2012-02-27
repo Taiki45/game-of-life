@@ -1,16 +1,18 @@
 class Life
-	def initialize
-		@deadOrAlive = DEAD
+	def initialize(condition)
+		@deadOrAlive = condition
 	end
 	
 	attr_reader :deadOrAlive
 	
 	def die
 		@deadOrAlive = DEAD
+		true
 	end
 	
 	def born
 		@deadOrAlive = ALIVE
+		true
 	end
 	
 	def dead?
