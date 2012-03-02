@@ -14,4 +14,3 @@ game.firstBorn(3,4)
 game.firstBorn(3,5)
 
 game.startGame(10)
-

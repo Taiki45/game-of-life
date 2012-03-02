@@ -25,10 +25,10 @@ class Earth
 	def selectLife(row, colum)
 		if deadOrAlive?(row, colum) == DEAD
 			born(row, colum) if born?(row, colum)
-		elsif deadOrAlive?(row, colum) == ALIVE
+      elsif deadOrAlive?(row, colum) == ALIVE
 			if depopuration?(row, colum) || overcrowding?(row, colum) then
 				die(row, colum)
-			elsif keep?(row, colum)
+        elsif keep?(row, colum)
 				born(row, colum)
 			end
 		end
@@ -67,7 +67,7 @@ class Earth
 	def deadOrAlive?(row, colum)
 		return @field[row][colum].deadOrAlive?
 	end
-		
+  
 	def dead?(row, colum)
 		return true if deadOrAlive?(row, colum) == DEAD
 		false

@@ -7,12 +7,12 @@ class Life
 	
 	def die
 		@deadOrAlive = DEAD
-		true
+		return true
 	end
 	
 	def born
 		@deadOrAlive = ALIVE
-		true
+		return true
 	end
 	
 	def dead?

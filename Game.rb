@@ -12,7 +12,7 @@ class Game
   end
   
   def printState
-		puts '-' * 30
+		puts '-' * 40
 		(1..@earth.size-2).each do |row|
 			(1..@earth.size-2).each do |colum|
 				print ' * ' if @earth.alive?(row, colum)
