@@ -11,17 +11,6 @@ class Earth
 		return @generation
 	end
 	
-	def printState
-		puts '-' * 30
-		(1..@size-2).each do |row|
-			(1..@size-2).each do |colum|
-				print ' * ' if alive?(row, colum)
-				print ' - ' if dead?(row, colum)
-			end
-		print "\n"
-		end
-	end
-	
 	def stepGeneration
 		@generation += 1
 		@nextField = Array.new(@size) { Array.new(@size) { Life.new(DEAD) } }
