@@ -7,10 +7,6 @@ class Earth
 	
 	attr_reader :size
 	
-	def length
-		@field.length * @field.length
-	end
-	
 	def nowGeneration?
 		return @generation
 	end
