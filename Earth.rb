@@ -60,7 +60,7 @@ class Earth
   end
   
   def keep?(row, colum)
-    return true if (2..3).include?( measurePopuration(row, colum) )
+    return true if (3..4).include?( measurePopuration(row, colum) )
     false
   end
   
