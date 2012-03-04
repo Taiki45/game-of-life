@@ -12,7 +12,6 @@ class Earth
     return @generation
   end
   
-  public
   def stepGeneration
     @generation += 1
     @nextField = Array.new(@size) { Array.new(@size) { Life.new(DEAD) } }

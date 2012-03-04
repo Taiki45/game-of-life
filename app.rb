@@ -9,5 +9,5 @@ FIELD_SIZE = 10
 PLAY_TIMES = 10
 
 game = Game.new
-game.setFirstBorn(2,3, 3,3, 3,4, 3,5)
+game.setFirstBorn(2,3, 3,3, 3,4, 3,5, 3,6)
 game.startGame
