@@ -5,6 +5,7 @@ class Life
   
   attr_reader :deadOrAlive
   
+  public
   def die
     @deadOrAlive = DEAD
     return true

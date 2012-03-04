@@ -3,6 +3,7 @@ class Game
     @earth = Earth.new(FIELD_SIZE)
   end
   
+  public
   def startGame
     PLAY_TIMES.times do
       puts @earth.nowGeneration?
@@ -12,6 +13,7 @@ class Game
     end
   end
   
+  private
   def printState
     puts '-' * 40
     (1..@earth.size-2).each do |row|
@@ -23,6 +25,7 @@ class Game
     end
   end
   
+  public
   def setFirstBorn(*nums)
     if nums.length % 2 == 0 then
       (nums.length / 2).times do

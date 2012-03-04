@@ -7,10 +7,12 @@ class Earth
   
   attr_reader :size
   
+  public
   def nowGeneration?
     return @generation
   end
   
+  public
   def stepGeneration
     @generation += 1
     @nextField = Array.new(@size) { Array.new(@size) { Life.new(DEAD) } }
@@ -22,6 +24,7 @@ class Earth
     @field = @nextField
   end
   
+  private
   def selectLife(row, colum)
     if deadOrAlive?(row, colum) == DEAD
       born(row, colum) if born?(row, colum)
@@ -64,6 +67,15 @@ class Earth
     false
   end
   
+  def born(row, colum)
+    @nextField[row][colum].born
+  end
+  
+  def die(row, colum)
+    @nextField[row][colum].die
+  end
+  
+  public
   def deadOrAlive?(row, colum)
     return @field[row][colum].deadOrAlive?
   end
@@ -76,14 +88,6 @@ class Earth
   def alive?(row, colum)
     return true if deadOrAlive?(row, colum) == ALIVE
     false
-  end
-  
-  def born(row, colum)
-    @nextField[row][colum].born
-  end
-  
-  def die(row, colum)
-    @nextField[row][colum].die
   end
   
   def firstBorn(row, colum)
