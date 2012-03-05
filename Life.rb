@@ -1,8 +1,11 @@
 class Life
+  #define instance var
+  #and substitute the argument, that will be DEAD or ALIVE
   def initialize(condition)
     @deadOrAlive = condition
   end
   
+  #set accessor for only reading
   attr_reader :deadOrAlive
   
   public

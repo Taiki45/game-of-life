@@ -1,18 +1,22 @@
 class Game
+  #create Earth object with substituting FIELD_SIZE
   def initialize
     @earth = Earth.new(FIELD_SIZE)
   end
   
+  #main method
+  #make roop for palying, output status, calculate next generation
   public
   def startGame
     PLAY_TIMES.times do
       puts @earth.nowGeneration?
       printState
-      sleep 0.5
+      sleep DELAY_TIME
       @earth.stepGeneration
     end
   end
   
+  #output status
   private
   def printState
     puts '-' * 40
@@ -25,6 +29,7 @@ class Game
     end
   end
   
+  #set live cells before game starts
   public
   def setFirstBorn(*nums)
     if nums.length % 2 == 0 then

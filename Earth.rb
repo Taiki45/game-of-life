@@ -1,17 +1,22 @@
 class Earth
+  #recieve a constant FIELD_SIZE and set it to @size attribute
+  #create field map and create Life objects at each cell in map
   def initialize(fieldSize)
     @generation = 1
     @size = fieldSize
     @field = Array.new(@size) { Array.new(@size) { Life.new(DEAD) } }
   end
   
-  attr_reader :size
+  attr_reader :size #set accessor for reading
   
   public
-  def nowGeneration?
+  def nowGeneration? #for confirm generation
     return @generation
   end
   
+  #main method
+  #create new field and calcurate next generation and substitute next field to present field
+  #this may not be good design. Fix it later.
   def stepGeneration
     @generation += 1
     @nextField = Array.new(@size) { Array.new(@size) { Life.new(DEAD) } }
@@ -23,6 +28,8 @@ class Earth
     @field = @nextField
   end
   
+  #judge the life should be in next future
+  #this also is not good design. Fix it later.
   private
   def selectLife(row, colum)
     if deadOrAlive?(row, colum) == DEAD
@@ -36,6 +43,7 @@ class Earth
     end
   end
   
+  #count live cell around the cell. the result contain the cell.
   def measurePopuration(row, colum)
     popuration = 0
     (-1..1).each do |i|
@@ -46,6 +54,7 @@ class Earth
     return popuration
   end
   
+  #judge methods
   def depopuration?(row, colum)
     return true if measurePopuration(row, colum) <= 2
     false
@@ -66,6 +75,8 @@ class Earth
     false
   end
   
+  #action methods
+  #Caution, these affect @nextField now. Fix this problem later.
   def born(row, colum)
     @nextField[row][colum].born
   end
@@ -74,6 +85,7 @@ class Earth
     @nextField[row][colum].die
   end
   
+  #confirm methods
   public
   def deadOrAlive?(row, colum)
     return @field[row][colum].deadOrAlive?
@@ -89,6 +101,7 @@ class Earth
     false
   end
   
+  #start action method
   def firstBorn(row, colum)
     @field[row][colum].born
   end
