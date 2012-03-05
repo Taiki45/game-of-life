@@ -8,7 +8,7 @@ class Game
     PLAY_TIMES.times do
       puts @earth.nowGeneration?
       printState
-      sleep 1
+      sleep 0.5
       @earth.stepGeneration
     end
   end
