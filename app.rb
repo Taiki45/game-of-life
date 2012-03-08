@@ -16,6 +16,6 @@ game = Game.new
 
 #set live cells when game starts
 #each consists of row number and colum number
-game.setFirstBorn(2,3, 3,3, 3,4, 3,5, 3,6)
+game.set_first_born(2,3, 3,3, 3,4, 3,5, 3,6)
 
-game.startGame
+game.start_game

@@ -2,35 +2,35 @@ class Life
   #define instance var
   #and substitute the argument, that will be DEAD or ALIVE
   def initialize(condition)
-    @deadOrAlive = condition
+    @dead_or_alive = condition
   end
   
   #set accessor for only reading
-  attr_reader :deadOrAlive
+  attr_reader :dead_or_alive
   
   public
   def die
-    @deadOrAlive = DEAD
+    @dead_or_alive = DEAD
     return true
   end
   
   def born
-    @deadOrAlive = ALIVE
+    @dead_or_alive = ALIVE
     return true
   end
   
   def dead?
-    return true if @deadOrAlive == DEAD
+    return true if @dead_or_alive == DEAD
     false
   end
   
   def alive?
-    return true if @deadOrAlive == ALIVE
+    return true if @dead_or_alive == ALIVE
     false
   end
   
-  def deadOrAlive?
-    return DEAD if @deadOrAlive == DEAD
+  def dead_or_alive?
+    return DEAD if @dead_or_alive == DEAD
     ALIVE
   end
 end

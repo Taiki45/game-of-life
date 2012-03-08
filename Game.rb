@@ -7,18 +7,18 @@ class Game
   #main method
   #make roop for palying, output status, calculate next generation
   public
-  def startGame
+  def start_game
     PLAY_TIMES.times do
-      puts @earth.nowGeneration?
-      printState
+      puts @earth.now_generation?
+      print_state
       sleep DELAY_TIME
-      @earth.stepGeneration
+      @earth.step_generation
     end
   end
   
   #output status
   private
-  def printState
+  def print_state
     puts '-' * 40
     (1..@earth.size-2).each do |row|
       (1..@earth.size-2).each do |colum|
@@ -31,12 +31,12 @@ class Game
   
   #set live cells before game starts
   public
-  def setFirstBorn(*nums)
+  def set_first_born(*nums)
     if nums.length % 2 == 0 then
       (nums.length / 2).times do
         row = nums.shift
         colum = nums.shift
-        @earth.firstBorn(row, colum)
+        @earth.first_born(row, colum)
       end
       return true
     else
