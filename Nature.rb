@@ -89,7 +89,7 @@ class Nature
   end
   
   #confirm methods
-  public
+  private
   def dead_or_alive?(row, colum)
     return @field[row][colum].dead_or_alive?
   end
@@ -105,6 +105,7 @@ class Nature
   end
   
   #start action method
+  public
   def first_born(row, colum)
     @field[row][colum].born
   end
