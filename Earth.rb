@@ -10,12 +10,12 @@ class Earth
   end
   
   public
-  def now_generation? #for confirm generation
-    return @generation
+  def state
+    @nature.state
   end
   
-  def print_state
-    @nature.print_state
+  def now_generation? #for confirm generation
+    return @generation
   end
   
   #main method

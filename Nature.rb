@@ -10,6 +10,20 @@ class Nature
   attr_reader :size #set accessor for reading
   
   public
+  def state
+    state = '-' * 20
+    state += "\n"
+    (1..size-2).each do |row|
+      (1..size-2).each do |colum|
+        state += ' * ' if alive?(row, colum)
+        state += ' - ' if dead?(row, colum)
+      end
+      state += "\n"
+    end
+    state
+  end
+  
+  public
   def step_generation
     @next_field = Array.new(@size) { Array.new(@size) { Life.new(DEAD) } }
     (1..@size-2).each do |row|
@@ -18,17 +32,6 @@ class Nature
       end
     end
     @field = @next_field
-  end
-  
-  def print_state
-    puts '-' * 40
-    (1..size-2).each do |row|
-      (1..size-2).each do |colum|
-        print ' * ' if alive?(row, colum)
-        print ' - ' if dead?(row, colum)
-      end
-      print "\n"
-    end
   end
   
   #judge the life should be in next future

@@ -22,7 +22,7 @@ class Game
   #output status
   private
   def print_state
-    @earth.print_state
+    puts @earth.state
   end
   
   #set live cells before game starts
