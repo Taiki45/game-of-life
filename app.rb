@@ -1,6 +1,7 @@
 #!/usr/bin/ruby
 require File::dirname(__FILE__) + '/Life.rb'
 require File::dirname(__FILE__) + '/Earth.rb'
+require File::dirname(__FILE__) + '/Nature.rb'
 require File::dirname(__FILE__) + '/Game.rb'
 
 #define ALIVE and DEAD

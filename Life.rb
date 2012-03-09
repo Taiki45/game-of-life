@@ -1,3 +1,6 @@
+#
+#This class controlls life
+#
 class Life
   #define instance var
   #and substitute the argument, that will be DEAD or ALIVE

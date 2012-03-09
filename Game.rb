@@ -1,3 +1,6 @@
+#
+#This class controlls game mainly
+#
 class Game
   #create Earth object with substituting FIELD_SIZE
   def initialize
@@ -19,14 +22,7 @@ class Game
   #output status
   private
   def print_state
-    puts '-' * 40
-    (1..@earth.size-2).each do |row|
-      (1..@earth.size-2).each do |colum|
-        print ' * ' if @earth.alive?(row, colum)
-        print ' - ' if @earth.dead?(row, colum)
-      end
-      print "\n"
-    end
+    @earth.print_state
   end
   
   #set live cells before game starts
