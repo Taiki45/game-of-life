@@ -23,7 +23,6 @@ class Nature
     state
   end
   
-  public
   def step_generation
     @next_field = Array.new(@size) { Array.new(@size) { Life.new(DEAD) } }
     (1..@size-2).each do |row|
