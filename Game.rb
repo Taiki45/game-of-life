@@ -5,7 +5,7 @@ class Game
   #create Earth object with substituting FIELD_SIZE
   def initialize
     @earth = Earth.new(FIELD_SIZE)
-    @previous_state, @present_state = '', ''
+    @previous_state, @present_state = String.new, String.new
   end
   
   #main method
