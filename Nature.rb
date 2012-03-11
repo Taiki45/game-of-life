@@ -5,11 +5,13 @@ class Nature
   def initialize(field_size)
     @size = field_size
     @field = Array.new(@size) { Array.new(@size) { Life.new(DEAD) } }
+    @birth_list = Array.new
+    @death_list = Array.new
   end
   
   attr_reader :size #set accessor for reading
   
-  #make state and return
+  #Make state and return
   public
   def state
     state = '-' * 20
@@ -24,31 +26,39 @@ class Nature
     state
   end
   
-  #main method
-  #calcurate and proccess for step generation
+  #Main method
+  #Calcurate and proccess for step generation
   public
   def step_generation
-    @next_field = Array.new(@size) { Array.new(@size) { Life.new(DEAD) } }
+    #Calcurate how each life will be
     (1..@size-2).each do |row|
       (1..@size-2).each do |colum|
         select_life(row, colum)
       end
     end
-    @field = @next_field
+    #Do action follwing above result
+    @birth_list.each do |birth|
+      birth_row = birth.shift
+      birth_colum = birth.shift
+      born(birth_row, birth_colum)
+    end
+    @death_list.each do |death|
+      death_row = death.shift
+      death_colum = death.shift
+      die(death_row, death_colum)
+    end
+    #Initialize lists for next generation
+    @birth_list = Array.new
+    @death_list = Array.new
   end
   
-  #judge the life should be in next future
-  #this also is not good design. Fix it later.
+  #judge the life should be in next generation
   private
   def select_life(row, colum)
     if dead_or_alive?(row, colum) == DEAD
-      born(row, colum) if born?(row, colum)
-      elsif dead_or_alive?(row, colum) == ALIVE
-      if depopuration?(row, colum) || overcrowding?(row, colum) then
-        die(row, colum)
-        elsif keep?(row, colum)
-        born(row, colum)
-      end
+      pool_birth(row, colum) if born?(row, colum)
+    elsif dead_or_alive?(row, colum) == ALIVE
+      pool_death(row, colum) if depopuration?(row, colum) || overcrowding?(row, colum)
     end
   end
   
@@ -87,14 +97,21 @@ class Nature
   end
   
   #action methods
-  #Caution, these affect @next_field now. Fix this problem later.
   private
   def born(row, colum)
-    @next_field[row][colum].born
+    @field[row][colum].born
   end
   
   def die(row, colum)
-    @next_field[row][colum].die
+    @field[row][colum].die
+  end
+  
+  def pool_birth(row, colum)
+    @birth_list.push([row, colum])
+  end
+  
+  def pool_death(row, colum)
+    @death_list.push([row, colum])
   end
   
   #confirm methods

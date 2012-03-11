@@ -9,14 +9,14 @@ ALIVE = 1
 DEAD = 0
 
 #set game settings
-FIELD_SIZE = 20
-PLAY_TIMES = 30
-DELAY_TIME = 0.1
+FIELD_SIZE = 10
+PLAY_TIMES = 10
+DELAY_TIME = 0
 
 game = Game.new
 
 #set live cells when game starts
 #each consists of row number and colum number
-game.set_first_born(2,3, 3,3, 3,4, 3,5, 3,6)
+game.set_first_born(2,3, 3,3, 4,3) # 3,5, 3,6
 
 game.start_game
