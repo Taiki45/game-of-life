@@ -25,6 +25,12 @@ class Nature
     state
   end
   
+  #start action method
+  public
+  def first_born(row, colum)
+    @field[row][colum].born
+  end
+  
   #Main method
   #Calcurate and proccess for step generation
   public
@@ -126,12 +132,6 @@ class Nature
   def alive?(row, colum)
     return true if dead_or_alive?(row, colum) == ALIVE
     false
-  end
-  
-  #start action method
-  public
-  def first_born(row, colum)
-    @field[row][colum].born
   end
   
 end
