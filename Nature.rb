@@ -5,8 +5,7 @@ class Nature
   def initialize(field_size)
     @size = field_size
     @field = Array.new(@size) { Array.new(@size) { Life.new(DEAD) } }
-    @birth_list = Array.new
-    @death_list = Array.new
+    @birth_list, @death_list = Array.new, Array.new
   end
   
   attr_reader :size #set accessor for reading
@@ -48,8 +47,7 @@ class Nature
       die(death_row, death_colum)
     end
     #Initialize lists for next generation
-    @birth_list = Array.new
-    @death_list = Array.new
+    @birth_list, @death_list = Array.new, Array.new
   end
   
   #judge the life should be in next generation

@@ -5,17 +5,38 @@ class Game
   #create Earth object with substituting FIELD_SIZE
   def initialize
     @earth = Earth.new(FIELD_SIZE)
+    @previous_state, @present_state = '', ''
   end
   
   #main method
   #make roop for palying, output status, calculate next generation
   public
   def start_game
-    PLAY_TIMES.times do
-      puts @earth.now_generation?
-      print_state
-      sleep DELAY_TIME
-      @earth.step_generation
+    catch :same_state do
+      PLAY_TIMES.times do
+        puts @earth.now_generation?
+        print_state
+        same_state?
+        sleep DELAY_TIME
+        @earth.step_generation
+      end
+      puts "game ended #{@earth.now_generation?} turns."
+    end
+  end
+  
+  #confirm present state and previous state are defferent 
+  private
+  def same_state?
+    if @earth.now_generation? == 1
+      @previous_state = @earth.state
+      return
+    end
+    @previous_state = @present_state
+    @present_state = @earth.state
+    if @present_state == @previous_state
+      puts 'Same state again.'
+      puts "Game ended #{@earth.now_generation?} turn."
+      throw :same_state
     end
   end
   
