@@ -9,6 +9,7 @@ class Nature
   
   attr_reader :size #set accessor for reading
   
+  #make state and return
   public
   def state
     state = '-' * 20
@@ -23,6 +24,9 @@ class Nature
     state
   end
   
+  #main method
+  #calcurate and proccess for step generation
+  public
   def step_generation
     @next_field = Array.new(@size) { Array.new(@size) { Life.new(DEAD) } }
     (1..@size-2).each do |row|
@@ -49,6 +53,7 @@ class Nature
   end
   
   #count live cell around the cell. the result contain the cell.
+  private
   def measure_popuration(row, colum)
     popuration = 0
     (-1..1).each do |i|
@@ -60,6 +65,7 @@ class Nature
   end
   
   #judge methods
+  private
   def depopuration?(row, colum)
     return true if measure_popuration(row, colum) <= 2
     false
@@ -82,6 +88,7 @@ class Nature
   
   #action methods
   #Caution, these affect @next_field now. Fix this problem later.
+  private
   def born(row, colum)
     @next_field[row][colum].born
   end
