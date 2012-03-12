@@ -1,20 +1,16 @@
-#
-#This class controlls game mainly
-#
 require File::dirname(__FILE__) + '/Life.rb'
 require File::dirname(__FILE__) + '/Earth.rb'
 require File::dirname(__FILE__) + '/Nature.rb'
-
 require File::dirname(__FILE__) + '/Settings.rb'
-
-FIELD_SIZE = Settings::FIELD_SIZE
-PLAY_TIMES = Settings::PLAY_TIMES
-DELAY_TIME = Settings::DELAY_TIME
-
+#
+#This class controlls game mainly
+#
 class Game
   #create Earth object with substituting FIELD_SIZE
   def initialize
-    @earth = Earth.new(FIELD_SIZE)
+    @play_times = Settings::PLAY_TIMES
+    @delay_time = Settings::DELAY_TIME
+    @earth = Earth.new(Settings::FIELD_SIZE)
     @previous_state, @present_state = String.new, String.new
   end
   
@@ -30,11 +26,11 @@ class Game
   def process_game
     set_first_alives(Settings::FIRST_ALIVES)
     catch :same_state do
-      PLAY_TIMES.times do
+      @play_times.times do
         puts @earth.now_generation?
         print_state
         same_state?
-        sleep DELAY_TIME
+        sleep @delay_time
         @earth.step_generation
       end
       puts "game ended #{@earth.now_generation?} turns."

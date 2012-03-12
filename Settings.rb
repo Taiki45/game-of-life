@@ -1,3 +1,4 @@
+#Set game Settings
 module Settings
   #Set how large the game field is
   FIELD_SIZE = 10
