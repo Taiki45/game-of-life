@@ -1,6 +1,10 @@
 #
 #This class controlls game mainly
 #
+require File::dirname(__FILE__) + '/Life.rb'
+require File::dirname(__FILE__) + '/Earth.rb'
+require File::dirname(__FILE__) + '/Nature.rb'
+
 class Game
   #create Earth object with substituting FIELD_SIZE
   def initialize
@@ -48,12 +52,12 @@ class Game
   
   #set live cells before game starts
   public
-  def set_first_born(*nums)
+  def set_first_alives(*nums)
     if nums.length % 2 == 0 then
       (nums.length / 2).times do
         row = nums.shift
         colum = nums.shift
-        @earth.first_born(row, colum)
+        @earth.set_first_alives(row, colum)
       end
       return true
     else

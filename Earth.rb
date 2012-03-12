@@ -27,8 +27,8 @@ class Earth
   end
   
   #start action method
-  def first_born(row, colum)
-    @nature.first_born(row, colum)
+  def set_first_alives(row, colum)
+    @nature.set_first_alives(row, colum)
   end
   
 end

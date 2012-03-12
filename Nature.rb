@@ -9,6 +9,7 @@ class Nature
   end
   
   attr_reader :size #set accessor for reading
+  alias length size
   
   #Make state and return
   public
@@ -27,7 +28,7 @@ class Nature
   
   #start action method
   public
-  def first_born(row, colum)
+  def set_first_alives(row, colum)
     @field[row][colum].born
   end
   

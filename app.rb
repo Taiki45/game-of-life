@@ -1,7 +1,4 @@
 #!/usr/bin/ruby
-require File::dirname(__FILE__) + '/Life.rb'
-require File::dirname(__FILE__) + '/Earth.rb'
-require File::dirname(__FILE__) + '/Nature.rb'
 require File::dirname(__FILE__) + '/Game.rb'
 
 #define ALIVE and DEAD
@@ -17,6 +14,6 @@ game = Game.new
 
 #set live cells when game starts
 #each consists of row number and colum number
-game.set_first_born(2,3, 3,2, 3,3, 2,4)#2,3, 3,2, 3,3, 4,3
+game.set_first_alives(2,3, 3,2, 3,3, 2,4)#2,3, 3,2, 3,3, 4,3
 
 game.start_game
