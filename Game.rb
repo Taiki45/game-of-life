@@ -14,8 +14,9 @@ class Game
     @previous_state, @present_state = String.new, String.new
   end
   
-  #main method
+  #singleton method
   #create Game instance and processing
+  public
   def self.start_game
     game = Game.new
     game.process_game
