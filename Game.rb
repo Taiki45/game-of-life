@@ -5,6 +5,12 @@ require File::dirname(__FILE__) + '/Life.rb'
 require File::dirname(__FILE__) + '/Earth.rb'
 require File::dirname(__FILE__) + '/Nature.rb'
 
+require File::dirname(__FILE__) + '/Settings.rb'
+
+FIELD_SIZE = Settings::FIELD_SIZE
+PLAY_TIMES = Settings::PLAY_TIMES
+DELAY_TIME = Settings::DELAY_TIME
+
 class Game
   #create Earth object with substituting FIELD_SIZE
   def initialize
@@ -13,9 +19,16 @@ class Game
   end
   
   #main method
+  #create Game instance and processing
+  def self.start_game
+    game = Game.new
+    game.process_game
+  end
+  
   #make roop for palying, output status, calculate next generation
   public
-  def start_game
+  def process_game
+    set_first_alives(Settings::FIRST_ALIVES)
     catch :same_state do
       PLAY_TIMES.times do
         puts @earth.now_generation?
@@ -51,17 +64,14 @@ class Game
   end
   
   #set live cells before game starts
-  public
-  def set_first_alives(*nums)
+  private
+  def set_first_alives(nums)
     if nums.length % 2 == 0 then
       (nums.length / 2).times do
         row = nums.shift
         colum = nums.shift
         @earth.set_first_alives(row, colum)
       end
-      return true
-    else
-      return false
     end
   end
 end
