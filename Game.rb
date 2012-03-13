@@ -1,10 +1,11 @@
+#
+#This class controlls game mainly
+#
 require File::dirname(__FILE__) + '/Life.rb'
 require File::dirname(__FILE__) + '/Earth.rb'
 require File::dirname(__FILE__) + '/Nature.rb'
 require File::dirname(__FILE__) + '/Settings.rb'
-#
-#This class controlls game mainly
-#
+
 class Game
   #create Earth object with substituting FIELD_SIZE
   def initialize
@@ -27,18 +28,21 @@ class Game
   def process_game
     set_first_alives(Settings::FIRST_ALIVES)
     catch :same_state do
-      @play_times.times do
-        puts @earth.now_generation?
-        print_state
-        same_state?
-        sleep @delay_time
-        @earth.step_generation
+      catch :all_dead do
+        @play_times.times do
+          puts @earth.now_generation?
+          print_state
+          same_state?
+          all_dead?
+          sleep @delay_time
+          @earth.step_generation
+        end
+        puts "game ended #{@earth.now_generation? - 1} turns."
       end
-      puts "game ended #{@earth.now_generation?} turns."
     end
   end
-  
-  #confirm present state and previous state are defferent 
+
+  #confirm present state and previous state are defferent
   private
   def same_state?
     if @earth.now_generation? == 1
@@ -51,6 +55,15 @@ class Game
       puts 'Same state again.'
       puts "Game ended #{@earth.now_generation?} turn."
       throw :same_state
+    end
+  end
+  
+  #confirm all lives are dead
+  def all_dead?
+    if not @earth.state =~ /\*+/
+      puts 'All lives are dead'
+      puts "Game ended #{@earth.now_generation?} turn."
+      throw :all_dead
     end
   end
   
