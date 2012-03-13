@@ -6,7 +6,7 @@ module Settings
   #Set how many generations game plays
   PLAY_TIMES = 30
   
-  #Setting for dilay between each generation game displays 
+  #Setting for dilay seconds between each generation game displays 
   DELAY_TIME = 0
   
   #set live cells when game starts

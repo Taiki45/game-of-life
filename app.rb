@@ -1,5 +1,4 @@
 #!/usr/bin/ruby
-
 require File::dirname(__FILE__) + '/Game.rb'
 
 #Define ALIVE and DEAD

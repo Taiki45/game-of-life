@@ -62,7 +62,7 @@ class Nature
   def select_life(row, colum)
     if dead_or_alive?(row, colum) == DEAD
       pool_birth(row, colum) if born?(row, colum)
-    elsif dead_or_alive?(row, colum) == ALIVE
+      elsif dead_or_alive?(row, colum) == ALIVE
       pool_death(row, colum) if depopuration?(row, colum) || overcrowding?(row, colum)
     end
   end
@@ -73,7 +73,7 @@ class Nature
     popuration = 0
     (-1..1).each do |i|
       (-1..1).each do |j|
-        popuration += 1 if dead_or_alive?(row + i, colum + j) == ALIVE
+          popuration += 1 if dead_or_alive?(row + i, colum + j) == ALIVE
       end
     end
     return popuration
