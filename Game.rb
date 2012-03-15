@@ -31,7 +31,7 @@ class Game
       catch :all_dead do
         @play_times.times do
           puts @earth.now_generation?
-          print_state #if @earth.now_generation? == @play_times
+          print_state
           same_state?
           all_dead?
           sleep @delay_time

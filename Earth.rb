@@ -19,8 +19,7 @@ class Earth
   end
   
   #main method
-  #create new field and calcurate next generation and substitute next field to present field
-  #this may not be good design. Fix it later.
+  #+1 to generation, and message to nature to process stepping generation
   def step_generation
     @generation += 1
     @nature.step_generation

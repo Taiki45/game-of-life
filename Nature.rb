@@ -74,31 +74,22 @@ class Nature
     (-1..1).each do |i|
       (-1..1).each do |j|
           if row+i == -1 && colum+j == -1
-            #puts 'a', row+i, colum+j
             popuration += 1 if dead_or_alive?(@size-1, @size-1) == ALIVE
           elsif row+i == @size && colum+j == @size
-            #puts 'b', row+i, colum+j
             popuration += 1 if dead_or_alive?(0, 0) == ALIVE
           elsif row+i == -1 && colum+j == @size
-            #puts 'c', row+i, colum+j
             popuration += 1 if dead_or_alive?(@size-1, 0) == ALIVE
           elsif row+i == @size && colum+j == -1
-            #puts 'd', row+i, colum+j
             popuration += 1 if dead_or_alive?(0, @size-1) == ALIVE
           elsif row+i == -1
-            #puts 'e', row+i, colum+j
             popuration += 1 if dead_or_alive?(@size-1, colum + j) == ALIVE
           elsif colum+j == -1
-            #puts 'f', row+i, colum+j
             popuration += 1 if dead_or_alive?(row+i, @size-1) == ALIVE
           elsif row+i == @size
-            #puts 'g', row+i, colum+j
             popuration += 1 if dead_or_alive?(0, colum+j) == ALIVE
           elsif colum + j == @size
-            #puts 'h', row+i, colum+j
             popuration += 1 if dead_or_alive?(row + i, 0) == ALIVE
           else
-            #puts 'i', row+i, colum+j
             popuration += 1 if dead_or_alive?(row + i, colum + j) == ALIVE
           end
       end
