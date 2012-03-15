@@ -26,18 +26,19 @@ class Game
   #make roop for palying, output status, calculate next generation
   public
   def process_game
-    set_first_alives(Settings::FIRST_ALIVES)
+    set_first_alives
     catch :same_state do
       catch :all_dead do
         @play_times.times do
           puts @earth.now_generation?
-          print_state
+          print_state #if @earth.now_generation? == @play_times
           same_state?
           all_dead?
           sleep @delay_time
           @earth.step_generation
         end
         puts "game ended #{@earth.now_generation? - 1} turns."
+        puts 'you could do more turn.'
       end
     end
   end
@@ -75,13 +76,23 @@ class Game
   
   #set live cells before game starts
   private
-  def set_first_alives(nums)
-    if nums.length % 2 == 0 then
-      (nums.length / 2).times do
-        row = nums.shift
-        colum = nums.shift
+  def set_first_alives
+    if Settings::RANDOM_SEED == true
+      size = Settings::FIELD_SIZE
+      (size * Settings::AMOUNT).times do
+        row, colum = rand(size), rand(size)
         @earth.set_first_alives(row, colum)
+      end
+    else
+      nums = Settings::FIRST_ALIVES
+      if nums.length % 2 == 0 then
+        (nums.length / 2).times do
+          row = nums.shift
+          colum = nums.shift
+          @earth.set_first_alives(row, colum)
+        end
       end
     end
   end
+  
 end
