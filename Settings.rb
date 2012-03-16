@@ -4,7 +4,7 @@ module Settings
   FIELD_SIZE = 30
   
   #Set how many generations game plays
-  PLAY_TIMES = 300
+  PLAY_TIMES = 100
   
   #Setting for dilay seconds between each generation game displays 
   DELAY_TIME = 0

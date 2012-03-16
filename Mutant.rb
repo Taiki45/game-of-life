@@ -1,4 +1,3 @@
-require File::dirname(__FILE__) + '/Life.rb'
 #
 #This class is extented Life and override some method
 #
