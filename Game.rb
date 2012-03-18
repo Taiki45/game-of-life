@@ -20,8 +20,7 @@ class Game
   #create Game instance and processing
   public
   def self.start_game
-    game = Game.new
-    game.process_game
+    Game.new.process_game
   end
   
   #make roop for palying, output status, calculate next generation
@@ -43,6 +42,13 @@ class Game
       end
     end
   end
+  
+  #Stop game using throw labeled break
+  private
+  def stop_game state
+    puts "Game ended #{@earth.now_generation?} turn."
+    throw state
+  end
 
   #confirm present state and previous state are defferent
   private
@@ -55,17 +61,15 @@ class Game
     @present_state = @earth.state
     if @present_state == @previous_state
       puts 'Same state again.'
-      puts "Game ended #{@earth.now_generation?} turn."
-      throw :same_state
+      stop_game :same_state
     end
   end
   
   #confirm all lives are dead
   def all_dead?
     if not @earth.state =~ /\*+/
-      puts 'All lives are dead'
-      puts "Game ended #{@earth.now_generation?} turn."
-      throw :all_dead
+      puts 'All alives are dead'
+      stop_game :all_dead
     end
   end
   
@@ -95,5 +99,4 @@ class Game
       end
     end
   end
-  
 end
