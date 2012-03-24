@@ -5,7 +5,7 @@ require File::dirname(__FILE__) + '/Life.rb'
 require File::dirname(__FILE__) + '/Mutant.rb'
 require File::dirname(__FILE__) + '/Earth.rb'
 require File::dirname(__FILE__) + '/Nature.rb'
-require File::dirname(__FILE__) + '/Settings.rb'
+require File::dirname(__FILE__) + '/../Settings.rb'
 
 class Game
   #create Earth object with substituting FIELD_SIZE

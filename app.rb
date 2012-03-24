@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-require File::dirname(__FILE__) + '/Game.rb'
+require File::dirname(__FILE__) + '/lib/Game.rb'
 
 #Define ALIVE and DEAD
 ALIVE = 1
