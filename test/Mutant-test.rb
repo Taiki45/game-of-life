@@ -30,7 +30,7 @@ class TestMutant < MiniTest::Unit::TestCase
     assert_equal 0, @mutant.dead_or_alive?
   end
 
-  def test_die
+  def test_mutant_die
     mutant = Mutant.new 0
     die_loop = lambda do
       loop do
