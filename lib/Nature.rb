@@ -34,6 +34,7 @@ class Nature
   public
   def set_first_alives(row, colum)
     @field[row][colum].born
+    true
   end
   
   #Main method
@@ -59,6 +60,7 @@ class Nature
     end
     #Initialize lists for next generation
     @birth_list, @death_list = Array.new, Array.new
+    true
   end
   
   #judge the life should be in next generation
