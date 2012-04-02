@@ -20,7 +20,7 @@ class Game
   #create Game instance and processing
   public
   def self.start_game
-    Game.new.process_game
+    self.new.process_game
   end
   
   #make roop for palying, output status, calculate next generation
@@ -41,6 +41,7 @@ class Game
         puts 'you could do more turn.'
       end
     end
+    true
   end
   
   #Stop game using throw labeled break
