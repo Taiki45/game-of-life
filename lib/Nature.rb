@@ -15,13 +15,13 @@ class Nature
   public
   def state
     state = '-' * 20
-    state += "\n"
+    state << "\n"
     (0..size-1).each do |row|
       (0..size-1).each do |colum|
-        state += ' * ' if alive?(row, colum)
-        state += ' - ' if dead?(row, colum)
+        state << ' * ' if alive?(row, colum)
+        state << ' - ' if dead?(row, colum)
       end
-      state += "\n"
+      state << "\n"
     end
     state
   end
