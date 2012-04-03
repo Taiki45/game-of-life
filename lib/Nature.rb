@@ -4,11 +4,7 @@
 class Nature
   def initialize(field_size)
     @size = field_size
-    unless Settings::MUTANT
-      @field = Array.new(@size) { Array.new(@size) { Life.new(DEAD) } }
-    else
-      @field = Array.new(@size) { Array.new(@size) { Mutant.new(DEAD) } }
-    end
+    @field = Array.new(@size) { Array.new(@size) { Life.make } }
     @birth_list, @death_list = Array.new, Array.new
   end
   

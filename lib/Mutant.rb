@@ -2,8 +2,8 @@
 #This class is extented Life and override some method
 #
 class Mutant < Life
-  def initialize(condition)
-    @dead_or_alive = condition
+  def initialize
+    @dead_or_alive = DEAD
     @death_count = 0
     @birth_count = 0
   end
