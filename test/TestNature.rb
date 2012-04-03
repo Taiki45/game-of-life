@@ -8,7 +8,7 @@ MiniTest::Unit.autorun
 DEAD = 0
 ALIVE = 1
 
-class TestNature < MiniTest::Unit::TestCase
+class NatureTest < MiniTest::Unit::TestCase
   def setup
     @num = 10
     @nature = Nature.new @num
