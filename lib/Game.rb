@@ -1,9 +1,7 @@
 #
 #This class controlls game mainly
 #
-require File::dirname(__FILE__) + '/Life.rb'
 require File::dirname(__FILE__) + '/Earth.rb'
-require File::dirname(__FILE__) + '/Nature.rb'
 
 class Game
   #create Earth object with substituting FIELD_SIZE

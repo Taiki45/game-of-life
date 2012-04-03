@@ -1,6 +1,8 @@
 #
 #This class controlls field that lifes live in
 #
+require File::dirname(__FILE__) + '/Life.rb'
+
 class Nature
   def initialize(field_size)
     @size = field_size

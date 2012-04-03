@@ -1,6 +1,8 @@
 #
 #This class controlls generation mainly.
 #
+require File::dirname(__FILE__) + '/Nature.rb'
+
 class Earth
   #recieve a constant FIELD_SIZE and set it to @size attribute
   #create field map and create Life objects at each cell in map

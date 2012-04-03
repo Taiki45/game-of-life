@@ -17,7 +17,7 @@ module Settings
   #2,3, 3,2, 3,3, 4,3
   #2,3, 3,2, 3,3, 2,4
   #3,4, 3,5, 4,3, 4,4, 5,4
-  FIRST_ALIVES = [2,3, 3,2, 3,3, 4,3]
+  FIRST_ALIVES = [3,4, 3,5, 4,3, 4,4, 5,4]
   
   #This option should be 'true' or 'false'
   #if true, disable above FIRST_ALIVES option,
