@@ -6,7 +6,7 @@ MiniTest::Unit.autorun
 DEAD = 0
 ALIVE = 1
 
-class TestGame < MiniTest::Unit::TestCase
+class GameTest < MiniTest::Unit::TestCase
   def test_game
     code = 'def print_state; end'
     Game.class_eval code
