@@ -11,6 +11,15 @@ class Nature
   attr_reader :size #set accessor for reading
   alias length size
   
+  private
+  def each
+    (0..size-1).each do |row|
+      (0..size-1).each do |colum|
+        yield row, colum
+      end
+    end
+  end
+  
   #Make state and return
   public
   def state
@@ -38,10 +47,8 @@ class Nature
   public
   def step_generation
     #Calcurate how each life will be
-    (0..@size-1).each do |row|
-      (0..@size-1).each do |colum|
-        select_life(row, colum)
-      end
+    each do |row, colum|
+      select_life(row, colum)
     end
     #Do action follwing above result
     @birth_list.each do |birth|
