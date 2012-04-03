@@ -6,9 +6,9 @@ MiniTest::Unit.autorun
 DEAD = 0
 ALIVE = 1
 
-class TestLife < MiniTest::Unit::TestCase
+class LifeTest < MiniTest::Unit::TestCase
   def setup
-    @life = Life.new 0
+    @life = Life.make
   end
 
   def test_conditions
@@ -26,5 +26,18 @@ class TestLife < MiniTest::Unit::TestCase
   def test_changes_die
     assert_equal true, @life.die
     assert_equal 0, @life.dead_or_alive?
+  end
+
+  def test_mutant_fearture
+    Settings.class_eval('MUTANT = true')
+    mutant = Life.make
+    die_loop = lambda do
+      loop do
+        mutant.die
+        break if mutant.alive?
+      end
+      true
+    end
+    assert_equal true, die_loop.call
   end
 end
