@@ -8,7 +8,7 @@ ALIVE = 1
 
 class LifeTest < MiniTest::Unit::TestCase
   def setup
-    @life = Life.make
+    @life = Life.new
   end
 
   def test_conditions
@@ -30,7 +30,7 @@ class LifeTest < MiniTest::Unit::TestCase
 
   def test_mutant_fearture
     Settings.class_eval('MUTANT = true')
-    mutant = Life.make
+    mutant = Life.new
     die_loop = lambda do
       loop do
         mutant.die

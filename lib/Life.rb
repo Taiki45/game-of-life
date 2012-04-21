@@ -4,7 +4,7 @@
 require File::dirname(__FILE__) + '/../Settings.rb'
 
 class Life
-  def self.make
+  def self.new
     unless Settings::MUTANT
       Normal.new
     else

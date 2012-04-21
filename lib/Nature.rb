@@ -6,7 +6,7 @@ require File::dirname(__FILE__) + '/Life.rb'
 class Nature
   def initialize(field_size)
     @size = field_size
-    @field = Array.new(@size) { Array.new(@size) { Life.make } }
+    @field = Array.new(@size) { Array.new(@size) { Life.new } }
     @birth_list, @death_list = Array.new, Array.new
   end
   
