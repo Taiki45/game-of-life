@@ -7,7 +7,7 @@ module Settings
   PLAY_TIMES = 100
   
   #Setting for dilay seconds between each generation game displays 
-  DELAY_TIME = 0
+  DELAY_TIME = 0.1
   
   #set live cells when game starts
   #Each consists of row number and colum number
@@ -29,7 +29,7 @@ module Settings
   #fewer << lots, 1 << heigher(10 or 20)
   # Hint:When you set FIELD_SIZE as big size, this option should be bigger number
   #Default is '4'
-  AMOUNT = 4
+  AMOUNT = 8
   
   #This option give mutant ability to Lifes.
   #But, the game will NOT be "conway's game og life"
