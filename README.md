@@ -5,7 +5,7 @@ This program is in [github](https://github.com/Taiki45/game-of-life).
 
 ##License
 The MIT License.
-Please check LICENSE.txt.
+Please check LICENSE.md.
 
 ##How to play
 If you have **Mac**, this game works easily. 
